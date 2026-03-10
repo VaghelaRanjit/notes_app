@@ -1,0 +1,115 @@
+  // **Simple delete**//
+  // void delete(NotesModel notesModel) async {
+  //
+  //   await notesModel.delete();
+  // }
+
+
+
+ // this is simple delete function
+  void delete(NotesModel notesModel) async {
+    final box = Boxes.getNotes();
+
+    // If this is the last note
+    if (box.length == 1) {
+      // ScaffoldMessenger.of(context).showSnackBar(
+      //   const SnackBar(
+      //     backgroundColor: Colors.red,
+      //     content: Text("All notes are deleted"),
+      //   ),
+      // );
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: Colors.red,
+          content: const Text("All notes are deleted"),
+          action: SnackBarAction(
+            label: "UNDO",
+            onPressed: () {
+              // restore logic
+            },
+          ),
+        ),
+      );
+    }
+
+    await notesModel.delete();
+  }
+
+
+
+  // **//this is delete function with undo option**//
+  //
+  // void deleteUndo(NotesModel notesModel) async {
+  //   final box = Boxes.getNotes();
+  //
+  //   // Backup data for undo
+  //   final backupNote = NotesModel(
+  //     title: notesModel.title,
+  //     description: notesModel.description,
+  //   );
+  //
+  //   final wasLastNote = box.length == 1;
+  //
+  //   // Delete note
+  //   await notesModel.delete();
+  //
+  //   // Show snackbar with UNDO
+  //   ScaffoldMessenger.of(context).showSnackBar(
+  //     SnackBar(
+  //       duration: Duration(seconds: 3),
+  //       backgroundColor: wasLastNote ? Colors.red : Colors.black,
+  //       content: Text(wasLastNote ? "All notes are deleted" : "Note deleted"),
+  //       action: SnackBarAction(
+  //         label: "UNDO",
+  //         textColor: Colors.yellow,
+  //         onPressed: () async {
+  //
+  //           await box.add(backupNote);
+  //
+  //         },
+  //       ),
+  //     ),
+  //   );
+  // }
+
+  //
+    // void deleteUndo(NotesModel notesModel) async {
+    //   final box = Boxes.getNotes();
+    //
+    //   // Backup data for undo
+    //   final backupNote = NotesModel(
+    //     title: notesModel.title,
+    //     description: notesModel.description,
+    //   );
+    //
+    //   final wasLastNote = box.length == 1;
+    //
+    //   // Delete note
+    //   await notesModel.delete();
+    //
+    //
+    //   if (!mounted) return;
+    //
+    //   // Remove previous snackbar before showing new one
+    //   ScaffoldMessenger.of(context)
+    //     ..hideCurrentSnackBar()
+    //     ..showSnackBar(
+    //       SnackBar(
+    //         duration: const Duration(seconds: 3),
+    //         backgroundColor: wasLastNote ? Colors.red : Colors.black,
+    //         content: Text(
+    //           wasLastNote ? "All notes are deleted" : "Note deleted",
+    //         ),
+    //         action: SnackBarAction(
+    //           label: "UNDO",
+    //           textColor: Colors.yellow,
+    //           onPressed: () async {
+    //             await box.add(backupNote);
+    //
+    //
+    //           },
+    //         ),
+    //       ),
+    //     );
+    // }
