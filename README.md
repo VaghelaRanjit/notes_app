@@ -1,4 +1,4 @@
-# 📱 Hive Notes App
+# 📱 Notes App
 
 A simple and fast **Notes Application** built using **Flutter and Hive Database**.
 This app allows users to store notes locally with a clean and responsive UI.
