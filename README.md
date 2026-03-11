@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # hive_db_notes_app
 
 A new Flutter project.
@@ -14,3 +15,7 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+# notes_app
+This is a notes app  using flutter and hive database
+>>>>>>> 32b082831a7a4a1f701994e5b43803e357f0dab1
